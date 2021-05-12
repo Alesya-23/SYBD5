@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "6+Pkf8wMB7y6Z6iB/H/z30x6D5Zo1KkAJaCeqyqpkq5h/yJM0ko8iSiljX718k14qCAFiF1KAfrx9VqfeXc/lQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aleca\\source\\repos\\SYBD5\\HotelDatabaseBusinessLogic\\HotelDatabaseBusinessLogic.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aleca\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\aleca\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

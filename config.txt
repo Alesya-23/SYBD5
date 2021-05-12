@@ -1,0 +1,5 @@
+Host=192.168.1.24;
+Port=7000;
+Database=database;
+Username=postgres;
+Password=52424222;

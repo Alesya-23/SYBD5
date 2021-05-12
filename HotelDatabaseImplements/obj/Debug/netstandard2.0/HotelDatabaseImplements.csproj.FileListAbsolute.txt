@@ -1,0 +1,4 @@
+C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\bin\Debug\netstandard2.0\HotelDatabaseBusinessLogic.dll
+C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.csprojAssemblyReference.cache
+C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.AssemblyInfoInputs.cache
+C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.AssemblyInfo.cs
