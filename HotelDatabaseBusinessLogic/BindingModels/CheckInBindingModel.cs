@@ -9,7 +9,6 @@ namespace HotelDatabaseBusinessLogic.BindingModels
         public int? Id { get; set; }
         public DateTime DateArrival { get; set; }
         public  DateTime Datedepature  { get; set; }
-        public int CountDays { get; set; }
         public int ClientId { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
-using HotelDatabaseBusinessLogic.BusinessLogic;
 using HotelDatabaseBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;

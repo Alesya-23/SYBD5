@@ -12,11 +12,9 @@ namespace HotelDatabaseBusinessLogic.ViewModels
         public string name { get; set; }
         [DisplayName("Кол-во номеров")]
         public int CountRooms { get; set; }
-        [DisplayName("Уровень обслуживания")]
-        public string LevelOfService { get; set; }
-        [DisplayName("Кол-во свободных номеров")]
-        public int CountFreeRooms { get; set; }
+
         [DisplayName("Кол-во занятых номеров")]
         public int CountBusyRooms { get; set; }
+
     }
 }

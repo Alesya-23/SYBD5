@@ -8,10 +8,10 @@ namespace HotelDatabaseBusinessLogic.ViewModels
     public class ClientViewModel
     {
         public int? Id { get; set; }
+        public int HotelId { get; set; }
         [DisplayName("ФИО")]
         public string fioname { get; set; }
         [DisplayName("Паспорт")]
         public int passport { get; set; }
-        public int HotelId { get; set; }
     }
 }

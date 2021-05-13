@@ -8,7 +8,6 @@ namespace HotelDatabaseImplements.Models
     public class HotelRoom
     {
         public int? Id { get; set; }
-        public int CountRooms { get; set; }
         public string TypeRoom { get; set; }
         public double Price { get; set; }
         public int Reservation { get; set; }

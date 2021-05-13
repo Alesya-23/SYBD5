@@ -35,8 +35,6 @@ namespace HotelDatabaseView
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelDepature = new System.Windows.Forms.Label();
             this.textBoxDepature = new System.Windows.Forms.TextBox();
-            this.labelDays = new System.Windows.Forms.Label();
-            this.textBoxDays = new System.Windows.Forms.TextBox();
             this.labelClient = new System.Windows.Forms.Label();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -93,26 +91,10 @@ namespace HotelDatabaseView
             this.textBoxDepature.Size = new System.Drawing.Size(493, 26);
             this.textBoxDepature.TabIndex = 19;
             // 
-            // labelDays
-            // 
-            this.labelDays.AutoSize = true;
-            this.labelDays.Location = new System.Drawing.Point(12, 179);
-            this.labelDays.Name = "labelDays";
-            this.labelDays.Size = new System.Drawing.Size(39, 20);
-            this.labelDays.TabIndex = 20;
-            this.labelDays.Text = "Дни";
-            // 
-            // textBoxDays
-            // 
-            this.textBoxDays.Location = new System.Drawing.Point(14, 202);
-            this.textBoxDays.Name = "textBoxDays";
-            this.textBoxDays.Size = new System.Drawing.Size(493, 26);
-            this.textBoxDays.TabIndex = 21;
-            // 
             // labelClient
             // 
             this.labelClient.AutoSize = true;
-            this.labelClient.Location = new System.Drawing.Point(14, 244);
+            this.labelClient.Location = new System.Drawing.Point(14, 188);
             this.labelClient.Name = "labelClient";
             this.labelClient.Size = new System.Drawing.Size(65, 20);
             this.labelClient.TabIndex = 22;
@@ -121,7 +103,7 @@ namespace HotelDatabaseView
             // comboBoxClient
             // 
             this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(18, 267);
+            this.comboBoxClient.Location = new System.Drawing.Point(18, 229);
             this.comboBoxClient.Name = "comboBoxClient";
             this.comboBoxClient.Size = new System.Drawing.Size(489, 28);
             this.comboBoxClient.TabIndex = 23;
@@ -133,8 +115,6 @@ namespace HotelDatabaseView
             this.ClientSize = new System.Drawing.Size(556, 378);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.labelClient);
-            this.Controls.Add(this.textBoxDays);
-            this.Controls.Add(this.labelDays);
             this.Controls.Add(this.textBoxDepature);
             this.Controls.Add(this.labelDepature);
             this.Controls.Add(this.buttonCancel);
@@ -157,8 +137,6 @@ namespace HotelDatabaseView
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelDepature;
         private System.Windows.Forms.TextBox textBoxDepature;
-        private System.Windows.Forms.Label labelDays;
-        private System.Windows.Forms.TextBox textBoxDays;
         private System.Windows.Forms.Label labelClient;
         private System.Windows.Forms.ComboBox comboBoxClient;
     }

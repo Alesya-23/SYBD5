@@ -12,5 +12,7 @@ namespace HotelDatabaseBusinessLogic.ViewModels
         public string FIOname { get; set; }
         [DisplayName("Пост")]
         public string Post { get; set; }
+        public int HotelId { get; set; }
+        public Dictionary<int, string> HotelRooms { get; set; }
     }
 }
