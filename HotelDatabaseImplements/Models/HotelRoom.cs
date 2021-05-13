@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace HotelDatabaseImplements.Models
@@ -13,5 +14,8 @@ namespace HotelDatabaseImplements.Models
         public int Reservation { get; set; }
         public virtual Hotel Hotel { get; set; }
         public virtual Client Client { get; set; }
+
+        [ForeignKey("StaffId")]
+        public virtual List<HotelRoomStaff> HotelRoomStaffs { get; set; }
     }
 }

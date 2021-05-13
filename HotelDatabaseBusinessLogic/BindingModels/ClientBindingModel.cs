@@ -9,5 +9,6 @@ namespace HotelDatabaseBusinessLogic.BindingModels
         public int? Id { get; set; }
         public string fioname { get; set; }
         public int passport { get; set; }
+        public int HotelId { get; set; }
     }
 }

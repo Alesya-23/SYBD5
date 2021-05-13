@@ -12,5 +12,6 @@ namespace HotelDatabaseBusinessLogic.ViewModels
         public string fioname { get; set; }
         [DisplayName("Паспорт")]
         public int passport { get; set; }
+        public int HotelId { get; set; }
     }
 }

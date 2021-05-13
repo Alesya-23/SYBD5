@@ -1,22 +1,50 @@
-Ôªøusing System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using HotelDatabaseBusinessLogic.Interfaces;
+using System;
 using System.Windows.Forms;
+using Unity;
+using Unity.Lifetime;
 
 namespace HotelDatabaseView
 {
     static class Program
     {
-        /// <summary>
-        /// –ì–ª–∞–≤–Ω–∞—è —Ç–æ—á–∫–∞ –≤—Ö–æ–¥–∞ –¥–ª—è –ø—Ä–∏–ª–æ–∂–µ–Ω–∏—è.
-        /// </summary>
-        [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            // ‰ÂÈÒÚ‚Ëˇ, ÓÔÂ‡ÚÓ˚
+            // ...
         }
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        //        [STAThread]
+        //        static void Main()
+        //        {
+        //            var container = BuildUnityContainer();
+
+        //            object p = Application.SetHighDpiMode(HighDpiMode.SystemAware);
+        //            Application.EnableVisualStyles();
+        //            Application.SetCompatibleTextRenderingDefault(false);
+        //            Application.Run(container.Resolve<FormMain>());
+        //        }
+
+        //        private static IUnityContainer BuildUnityContainer()
+        //        {
+        //            var currentContainer = new UnityContainer();
+        //            currentContainer.RegisterType<IEmployeeStorage, EmployeeStorage>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<IEquipmentStorage, EquipmentStorage>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<ISoftwareStorage, SoftwareStorage>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<ISupplierStorage, SupplierStorage>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<ITypeStorage, TypeStorage>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<IEquipmentSoftwareStorage, EquipmentSoftwareStorage>(new HierarchicalLifetimeManager());
+
+        //            currentContainer.RegisterType<EmployeeLogic>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<EquipmentLogic>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<SoftwareLogic>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<SupplierLogic>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<TypeLogic>(new HierarchicalLifetimeManager());
+        //            currentContainer.RegisterType<EquipmentSoftwareLogic>(new HierarchicalLifetimeManager());
+
+        //            return currentContainer;
+        //        }
     }
 }

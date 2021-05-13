@@ -17,5 +17,7 @@ namespace HotelDatabaseBusinessLogic.ViewModels
 
         [DisplayName("Количество дней")]
         public int CountDays { get; set; }
+
+        public int ClientId { get; set; }
     }
 }

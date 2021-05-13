@@ -2,3 +2,15 @@ C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\bin\Debug\nets
 C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.csprojAssemblyReference.cache
 C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.AssemblyInfoInputs.cache
 C:\Users\aleca\source\repos\HotelDatabase\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.AssemblyInfo.cs
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\bin\Debug\netstandard2.0\HotelDatabaseBusinessLogic.dll
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.csprojAssemblyReference.cache
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.AssemblyInfoInputs.cache
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.AssemblyInfo.cs
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.csproj.CoreCompileInputs.cache
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\bin\Debug\netstandard2.0\HotelDatabaseImplements.deps.json
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\bin\Debug\netstandard2.0\HotelDatabaseImplements.dll
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\bin\Debug\netstandard2.0\HotelDatabaseImplements.pdb
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\bin\Debug\netstandard2.0\HotelDatabaseBusinessLogic.pdb
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.csproj.CopyComplete
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.dll
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseImplements\obj\Debug\netstandard2.0\HotelDatabaseImplements.pdb
