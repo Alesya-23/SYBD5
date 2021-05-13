@@ -35,7 +35,7 @@ namespace HotelDatabaseView
                     {
                         textBoxOrgName.Text = view.OrganizationName;
                         textBoxEmpName.Text = view.EmployeeName;
-                        textBoxAddress.Text = view.Address;
+                        textBoxPost.Text = view.Address;
                         textBoxPhone.Text = view.PhoneNumber;
 
                     }
@@ -59,7 +59,7 @@ namespace HotelDatabaseView
                 MessageBox.Show("Заполните поле \"ФИО работника\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxAddress.Text))
+            if (string.IsNullOrEmpty(textBoxPost.Text))
             {
                 MessageBox.Show("Заполните поле \"Адрес\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

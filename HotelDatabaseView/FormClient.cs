@@ -70,10 +70,10 @@ namespace HotelDatabaseView
 
                         if (view != null)
                         {
-                            textBoxName.Text = view.Name;
-                            textBoxSpecif.Text = view.Specifications;
+                            textBoxFullName.Text = view.Name;
+                            textBoxPassport.Text = view.Specifications;
                             textBoxState.Text = view.State;
-                            dateTimePicker.Value = view.ReceiptDate;
+                            date.Value = view.ReceiptDate;
                             comboBoxType.SelectedValue = view.TypeId;
                             comboBoxEmployee.SelectedValue = view.EmployeeId;
                             comboBoxSupplier.SelectedValue = view.SupplierId;
@@ -93,12 +93,12 @@ namespace HotelDatabaseView
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxName.Text))
+            if (string.IsNullOrEmpty(textBoxFullName.Text))
             {
                 MessageBox.Show("Заполните поле \"Наименование\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxSpecif.Text))
+            if (string.IsNullOrEmpty(textBoxPassport.Text))
             {
                 MessageBox.Show("Заполните поле \"Характеристики\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -129,10 +129,10 @@ namespace HotelDatabaseView
                 equipmentLogic.CreateOrUpdate(new EquipmentBindingModel
                 {
                     Id = id,
-                    Name = textBoxName.Text,
-                    Specifications = textBoxSpecif.Text,
+                    Name = textBoxFullName.Text,
+                    Specifications = textBoxPassport.Text,
                     State = textBoxState.Text,
-                    ReceiptDate = dateTimePicker.Value,
+                    ReceiptDate = date.Value,
                     EmployeeId = Convert.ToInt32(comboBoxEmployee.SelectedValue),
                     SupplierId = Convert.ToInt32(comboBoxSupplier.SelectedValue),
                     TypeId = Convert.ToInt32(comboBoxType.SelectedValue)

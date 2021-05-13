@@ -31,15 +31,17 @@ namespace HotelDatabaseView
         {
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
+            this.labelClient = new System.Windows.Forms.Label();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(259, 104);
+            this.buttonCancel.Location = new System.Drawing.Point(291, 221);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(165, 42);
+            this.buttonCancel.Size = new System.Drawing.Size(186, 42);
             this.buttonCancel.TabIndex = 21;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -47,40 +49,59 @@ namespace HotelDatabaseView
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(51, 104);
+            this.buttonSave.Location = new System.Drawing.Point(57, 221);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(165, 42);
+            this.buttonSave.Size = new System.Drawing.Size(186, 42);
             this.buttonSave.TabIndex = 20;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
-            // textBoxName
+            // textBoxPrice
             // 
-            this.textBoxName.Location = new System.Drawing.Point(19, 54);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(439, 27);
-            this.textBoxName.TabIndex = 19;
+            this.textBoxPrice.Location = new System.Drawing.Point(21, 54);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.Size = new System.Drawing.Size(493, 26);
+            this.textBoxPrice.TabIndex = 19;
             // 
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(19, 32);
+            this.labelName.Location = new System.Drawing.Point(21, 32);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(119, 20);
+            this.labelName.Size = new System.Drawing.Size(87, 30);
             this.labelName.TabIndex = 18;
-            this.labelName.Text = "Наименование:";
+            this.labelName.Text = "Сумма";
             // 
-            // FormType
+            // labelClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.labelClient.AutoSize = true;
+            this.labelClient.Location = new System.Drawing.Point(21, 88);
+            this.labelClient.Name = "labelClient";
+            this.labelClient.Size = new System.Drawing.Size(98, 30);
+            this.labelClient.TabIndex = 22;
+            this.labelClient.Text = "Клиент";
+            // 
+            // comboBoxClient
+            // 
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(21, 109);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(493, 28);
+            this.comboBoxClient.TabIndex = 23;
+            // 
+            // FormPayment
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(477, 179);
+            this.ClientSize = new System.Drawing.Size(537, 279);
+            this.Controls.Add(this.comboBoxClient);
+            this.Controls.Add(this.labelClient);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.labelName);
-            this.Name = "FormType";
+            this.Name = "FormPayment";
             this.Text = "Тип";
             this.Load += new System.EventHandler(this.FormType_Load);
             this.ResumeLayout(false);
@@ -92,7 +113,9 @@ namespace HotelDatabaseView
 
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxPrice;
         private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelClient;
+        private System.Windows.Forms.ComboBox comboBoxClient;
     }
 }

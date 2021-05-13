@@ -32,7 +32,7 @@ namespace HotelDatabaseView
 
                     if (view != null)
                     {
-                        textBoxName.Text = view.Name;
+                        textBoxPrice.Text = view.Name;
                     }
                 }
                 catch (Exception ex)
@@ -44,7 +44,7 @@ namespace HotelDatabaseView
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxName.Text))
+            if (string.IsNullOrEmpty(textBoxPrice.Text))
             {
                 MessageBox.Show("Заполните поле \"Наименование\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -55,7 +55,7 @@ namespace HotelDatabaseView
                 typeLogic.CreateOrUpdate(new TypeBindingModel
                 {
                     Id = id,
-                    Name = textBoxName.Text
+                    Name = textBoxPrice.Text
                 });
 
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

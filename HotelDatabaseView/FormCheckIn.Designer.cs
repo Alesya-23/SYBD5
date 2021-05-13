@@ -29,24 +29,15 @@ namespace HotelDatabaseView
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBoxArrival = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelDepature = new System.Windows.Forms.Label();
-            this.textBoxDepature = new System.Windows.Forms.TextBox();
-            this.labelDays = new System.Windows.Forms.Label();
-            this.textBoxDays = new System.Windows.Forms.TextBox();
             this.labelClient = new System.Windows.Forms.Label();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.dateArrives = new System.Windows.Forms.DateTimePicker();
+            this.dateDeparture = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
-            // 
-            // textBoxArrival
-            // 
-            this.textBoxArrival.Location = new System.Drawing.Point(14, 58);
-            this.textBoxArrival.Name = "textBoxArrival";
-            this.textBoxArrival.Size = new System.Drawing.Size(493, 26);
-            this.textBoxArrival.TabIndex = 3;
             // 
             // labelName
             // 
@@ -59,7 +50,7 @@ namespace HotelDatabaseView
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(303, 324);
+            this.buttonCancel.Location = new System.Drawing.Point(303, 239);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(186, 42);
             this.buttonCancel.TabIndex = 17;
@@ -69,7 +60,7 @@ namespace HotelDatabaseView
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(48, 324);
+            this.buttonSave.Location = new System.Drawing.Point(48, 239);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(186, 42);
             this.buttonSave.TabIndex = 16;
@@ -86,33 +77,10 @@ namespace HotelDatabaseView
             this.labelDepature.TabIndex = 18;
             this.labelDepature.Text = "Дата отбытия";
             // 
-            // textBoxDepature
-            // 
-            this.textBoxDepature.Location = new System.Drawing.Point(18, 136);
-            this.textBoxDepature.Name = "textBoxDepature";
-            this.textBoxDepature.Size = new System.Drawing.Size(493, 26);
-            this.textBoxDepature.TabIndex = 19;
-            // 
-            // labelDays
-            // 
-            this.labelDays.AutoSize = true;
-            this.labelDays.Location = new System.Drawing.Point(12, 179);
-            this.labelDays.Name = "labelDays";
-            this.labelDays.Size = new System.Drawing.Size(39, 20);
-            this.labelDays.TabIndex = 20;
-            this.labelDays.Text = "Дни";
-            // 
-            // textBoxDays
-            // 
-            this.textBoxDays.Location = new System.Drawing.Point(14, 202);
-            this.textBoxDays.Name = "textBoxDays";
-            this.textBoxDays.Size = new System.Drawing.Size(493, 26);
-            this.textBoxDays.TabIndex = 21;
-            // 
             // labelClient
             // 
             this.labelClient.AutoSize = true;
-            this.labelClient.Location = new System.Drawing.Point(14, 244);
+            this.labelClient.Location = new System.Drawing.Point(14, 167);
             this.labelClient.Name = "labelClient";
             this.labelClient.Size = new System.Drawing.Size(65, 20);
             this.labelClient.TabIndex = 22;
@@ -121,25 +89,37 @@ namespace HotelDatabaseView
             // comboBoxClient
             // 
             this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(18, 267);
+            this.comboBoxClient.Location = new System.Drawing.Point(18, 190);
             this.comboBoxClient.Name = "comboBoxClient";
             this.comboBoxClient.Size = new System.Drawing.Size(489, 28);
             this.comboBoxClient.TabIndex = 23;
+            // 
+            // dateArrives
+            // 
+            this.dateArrives.Location = new System.Drawing.Point(18, 59);
+            this.dateArrives.Name = "dateArrives";
+            this.dateArrives.Size = new System.Drawing.Size(493, 26);
+            this.dateArrives.TabIndex = 24;
+            // 
+            // dateDeparture
+            // 
+            this.dateDeparture.Location = new System.Drawing.Point(14, 126);
+            this.dateDeparture.Name = "dateDeparture";
+            this.dateDeparture.Size = new System.Drawing.Size(493, 26);
+            this.dateDeparture.TabIndex = 25;
             // 
             // FormCheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 378);
+            this.ClientSize = new System.Drawing.Size(556, 319);
+            this.Controls.Add(this.dateDeparture);
+            this.Controls.Add(this.dateArrives);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.labelClient);
-            this.Controls.Add(this.textBoxDays);
-            this.Controls.Add(this.labelDays);
-            this.Controls.Add(this.textBoxDepature);
             this.Controls.Add(this.labelDepature);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.textBoxArrival);
             this.Controls.Add(this.labelName);
             this.Name = "FormCheckIn";
             this.Text = "Заезд";
@@ -150,16 +130,13 @@ namespace HotelDatabaseView
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBoxArrival;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelDepature;
-        private System.Windows.Forms.TextBox textBoxDepature;
-        private System.Windows.Forms.Label labelDays;
-        private System.Windows.Forms.TextBox textBoxDays;
         private System.Windows.Forms.Label labelClient;
         private System.Windows.Forms.ComboBox comboBoxClient;
+        private System.Windows.Forms.DateTimePicker dateArrives;
+        private System.Windows.Forms.DateTimePicker dateDeparture;
     }
 }
