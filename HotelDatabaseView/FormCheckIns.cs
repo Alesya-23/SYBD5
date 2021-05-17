@@ -1,4 +1,5 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -31,6 +32,7 @@ namespace HotelDatabaseView
                 {
                     dataGridView.DataSource = list;
                     dataGridView.Columns[0].Visible = false;
+                    dataGridView.Columns[1].Visible = false;
                 }
             }
             catch (Exception ex)
@@ -83,28 +85,6 @@ namespace HotelDatabaseView
                     }
                     LoadData();
                 }
-            }
-        }
-
-        private void ButtonFindByName_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxName.Text))
-            {
-                MessageBox.Show("Заполните поле \"ФИО\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-                var list = CheckInLogic.Read(new CheckInBindingModel
-                {
-                    Name = textBoxName.Text
-                });
-                dataGridView.DataSource = list;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

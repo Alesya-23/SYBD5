@@ -1,4 +1,6 @@
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using HotelDatabaseBusinessLogic.Interfaces;
+using HotelDatabaseImplements.Implements;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -8,43 +10,36 @@ namespace HotelDatabaseView
 {
     static class Program
     {
-        static void Main()
-        {
-            // действия, операторы
-            // ...
-        }
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-        //        [STAThread]
-        //        static void Main()
-        //        {
-        //            var container = BuildUnityContainer();
+        [STAThread]
+        static void Main()
+        {
+            var container = BuildUnityContainer();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(container.Resolve<FormMain>());
+        }
 
-        //            object p = Application.SetHighDpiMode(HighDpiMode.SystemAware);
-        //            Application.EnableVisualStyles();
-        //            Application.SetCompatibleTextRenderingDefault(false);
-        //            Application.Run(container.Resolve<FormMain>());
-        //        }
+        private static IUnityContainer BuildUnityContainer()
+        {
+            var currentContainer = new UnityContainer();
+            currentContainer.RegisterType<IClientStorage, ClientStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ICheckInStorage, CheckInStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IHotelStorage, HotelStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IHotelRoomStorage, HotelRoomStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IPaymentStorage, PaymentStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IStaffStorage, StaffStorage>(new HierarchicalLifetimeManager());
 
-        //        private static IUnityContainer BuildUnityContainer()
-        //        {
-        //            var currentContainer = new UnityContainer();
-        //            currentContainer.RegisterType<IEmployeeStorage, EmployeeStorage>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<IEquipmentStorage, EquipmentStorage>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<ISoftwareStorage, SoftwareStorage>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<ISupplierStorage, SupplierStorage>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<ITypeStorage, TypeStorage>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<IEquipmentSoftwareStorage, EquipmentSoftwareStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ClientLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<CheckInLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<HotelLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<HotelRoomLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<PaymentLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<StaffLogic>(new HierarchicalLifetimeManager());
 
-        //            currentContainer.RegisterType<EmployeeLogic>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<EquipmentLogic>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<SoftwareLogic>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<SupplierLogic>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<TypeLogic>(new HierarchicalLifetimeManager());
-        //            currentContainer.RegisterType<EquipmentSoftwareLogic>(new HierarchicalLifetimeManager());
-
-        //            return currentContainer;
-        //        }
+            return currentContainer;
+        }
     }
 }

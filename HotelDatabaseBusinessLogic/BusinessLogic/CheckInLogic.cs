@@ -1,10 +1,11 @@
-﻿using HotelDatabaseBusinessLogic.Interfaces;
+﻿using HotelDatabaseBusinessLogic.BindingModels;
+using HotelDatabaseBusinessLogic.Interfaces;
 using HotelDatabaseBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HotelDatabaseBusinessLogic.BindingModels
+namespace HotelDatabaseBusinessLogic.BussinessLogic
 {
     public class CheckInLogic
     {

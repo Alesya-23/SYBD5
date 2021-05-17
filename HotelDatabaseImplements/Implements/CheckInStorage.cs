@@ -102,7 +102,7 @@ namespace HotelDatabaseImplements.Implements
             checkIn.Id = model.Id;
             checkIn.DateArrival = model.DateArrival;
             checkIn.Datedepature = model.Datedepature;
-            checkIn.Client.Id = model.ClientId;
+            checkIn.ClientId = model.ClientId;
             return checkIn;
         }
 

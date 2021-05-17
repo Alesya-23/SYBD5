@@ -1,5 +1,5 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
-using HotelDatabaseBusinessLogic.BusinessLogic;
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using HotelDatabaseBusinessLogic.ViewModels;
 using System;
 using System.Windows.Forms;
@@ -15,28 +15,24 @@ namespace HotelDatabaseView
         private int? id;
         public int Id { set { id = value; } }
 
-        private readonly SupplierLogic supplierLogic;
+        public StaffLogic staffLogic;
 
-        public FormStaff(SupplierLogic supplierLogic)
+        public FormStaff(StaffLogic logic)
         {
             InitializeComponent();
-            this.supplierLogic = supplierLogic;
+            staffLogic = logic;
         }
 
-        private void FormSupplier_Load(object sender, EventArgs e)
+        private void FormStaff_Load(object sender, EventArgs e)
         {
             if (id.HasValue)
             {
                 try
                 {
-                    SupplierViewModel view = supplierLogic.Read(new SupplierBindingModel { Id = id.Value })?[0];
+                    StaffViewModel view = staffLogic.Read(new StaffBindingModel { Id = id.Value })?[0];
 
                     if (view != null)
                     {
-                        textBoxOrgName.Text = view.OrganizationName;
-                        textBoxEmpName.Text = view.EmployeeName;
-                        textBoxAddress.Text = view.Address;
-                        textBoxPhone.Text = view.PhoneNumber;
 
                     }
                 }
@@ -46,38 +42,32 @@ namespace HotelDatabaseView
                 }
             }
         }
-
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxOrgName.Text))
-            {
-                MessageBox.Show("Заполните поле \"Название организации\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (string.IsNullOrEmpty(textBoxEmpName.Text))
             {
-                MessageBox.Show("Заполните поле \"ФИО работника\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле \"FIO\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxAddress.Text))
+            if (string.IsNullOrEmpty(textBoxPost.Text))
             {
-                MessageBox.Show("Заполните поле \"Адрес\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле \"Post\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxPhone.Text))
+            if (string.IsNullOrEmpty(comboBoxHotel.Text))
             {
-                MessageBox.Show("Заполните поле \"Номер телефона\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             try
             {
-                supplierLogic.CreateOrUpdate(new SupplierBindingModel
+                staffLogic.CreateOrUpdate(new StaffBindingModel
                 {
                     Id = id,
-                    OrganizationName = textBoxOrgName.Text,
-                    EmployeeName = textBoxEmpName.Text,
-                    PhoneNumber = textBoxPhone.Text
+                    FIOname = textBoxEmpName.Text,
+                    Post = textBoxPost.Text,
+                    HotelId = Convert.ToInt32(comboBoxHotel.SelectedValue)
                 });
 
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

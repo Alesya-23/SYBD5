@@ -260,6 +260,21 @@
     <EmbeddedResource Include="FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormClients.resx">
+      <DependentUpon>FormClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHotel.resx">
+      <DependentUpon>FormHotel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHotelRoom.resx">
+      <DependentUpon>FormHotelRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHotelRooms.resx">
+      <DependentUpon>FormHotelRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHotels.resx">
+      <DependentUpon>FormHotels.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

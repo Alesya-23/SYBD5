@@ -8,7 +8,7 @@ namespace HotelDatabaseBusinessLogic.ViewModels
     public class HotelViewModel
     {
         public int Id { get; set; }
-        [DisplayName("ФИО")]
+        [DisplayName("Название")]
         public string name { get; set; }
         [DisplayName("Кол-во номеров")]
         public int CountRooms { get; set; }

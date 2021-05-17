@@ -1,6 +1,8 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using HotelDatabaseBusinessLogic.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Unity;
 
@@ -16,37 +18,55 @@ namespace HotelDatabaseView
 
         private readonly CheckInLogic CheckInLogic;
 
-        public FormCheckIn(CheckInLogic CheckInLogic)
+        private readonly ClientLogic clientLogic;
+        public int ClientId { get { return Convert.ToInt32(comboBoxClient.SelectedValue); } set { comboBoxClient.SelectedValue = value; } }
+
+        public FormCheckIn(CheckInLogic CheckInLogic, ClientLogic ClientLogic)
         {
             InitializeComponent();
             this.CheckInLogic = CheckInLogic;
+            this.clientLogic = ClientLogic;
         }
 
         private void FormCheckIn_Load(object sender, EventArgs e)
         {
-            if (id.HasValue)
+            try
             {
-                try
+                List<ClientViewModel> listClient = clientLogic.Read(null);
+                if (listClient != null)
                 {
-                    CheckInViewModel view = CheckInLogic.Read(new CheckInBindingModel { Id = id.Value })?[0];
-
-                    if (view != null)
-                    {
-                        textBoxArrival.Text = view.Name;
-                    }
+                    comboBoxClient.DisplayMember = "fioname";
+                    comboBoxClient.ValueMember = "Id";
+                    comboBoxClient.DataSource = listClient;
+                    comboBoxClient.SelectedItem = null;
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw new Exception("Не удалось загрузить список изделий");
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxArrival.Text))
+            if (string.IsNullOrEmpty(dateArrives.Text))
             {
-                MessageBox.Show("Заполните поле \"ФИО\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните приезд \"приезд\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(dateDeparture.Text))
+            {
+                MessageBox.Show("Заполните отъезд \"отъезд\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (comboBoxClient.SelectedValue == null)
+            {
+                MessageBox.Show("Заполните клиента \"клиент\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -55,9 +75,9 @@ namespace HotelDatabaseView
                 CheckInLogic.CreateOrUpdate(new CheckInBindingModel
                 {
                     Id = id,
-                    DateArrival = Convert.ToDateTime(textBoxArrival.Text),
-                    Datedepature = Convert.ToDateTime(textBoxDepature.Text),
-                    CountDays = Convert.ToInt32(textBoxDays)
+                    DateArrival = Convert.ToDateTime(dateArrives.Text),
+                    Datedepature = Convert.ToDateTime(dateDeparture.Text),
+                    ClientId = Convert.ToInt32(comboBoxClient.SelectedValue)
                 });
 
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

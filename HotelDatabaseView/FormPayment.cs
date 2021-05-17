@@ -1,4 +1,5 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using HotelDatabaseBusinessLogic.ViewModels;
 using System;
 using System.Windows.Forms;
@@ -14,48 +15,99 @@ namespace HotelDatabaseView
         private int? id;
         public int Id { set { id = value; } }
 
-        private readonly TypeLogic typeLogic;
+        public PaymentLogic paymentLogic;
+        public ClientLogic clientLogic;
+        public CheckInLogic checkInLogic;
+        public HotelLogic hotelLogic;
 
-        public FormPayment(TypeLogic typeLogic)
+        public int CheckInId { get { return Convert.ToInt32(comboBoxCheckIn.SelectedValue); } set { comboBoxCheckIn.SelectedValue = value; } }
+        public int ClientId { get { return Convert.ToInt32(comboBoxClient.SelectedValue); } set { comboBoxClient.SelectedValue = value; } }
+        public int HotelId { get { return Convert.ToInt32(comboBoxClient.SelectedValue); } set { comboBoxClient.SelectedValue = value; } }
+
+        public FormPayment(PaymentLogic logic, ClientLogic ClientLogic, CheckInLogic CheckInLogic, HotelLogic HotelLogic)
         {
             InitializeComponent();
-            this.typeLogic = typeLogic;
+            paymentLogic = logic;
+            hotelLogic = HotelLogic;
+            clientLogic = ClientLogic;
+            checkInLogic = CheckInLogic;
         }
 
-        private void FormType_Load(object sender, EventArgs e)
+        private void FormPayment_Load(object sender, EventArgs e)
         {
-            if (id.HasValue)
+            try
             {
-                try
-                {
-                    TypeViewModel view = typeLogic.Read(new TypeBindingModel { Id = id.Value })?[0];
-
-                    if (view != null)
-                    {
-                        textBoxName.Text = view.Name;
-                    }
-                }
+                //List<StorehouseViewModel> listStore = _logicS.Read(null);
+                //if (listStore != null)
+                //{
+                //    comboBoxStore.DisplayMember = "StoreHouseName";
+                //    comboBoxStore.ValueMember = "Id";
+                //    comboBoxStore.DataSource = listStore;
+                //    comboBoxStore.SelectedItem = null;
+                //}
+                //List<ComponentViewModel> listComponent = _logicC.Read(null);
+                //if (listComponent != null)
+                //{
+                //    comboBoxComponent.DisplayMember = "ComponentName";
+                //    comboBoxComponent.ValueMember = "Id";
+                //    comboBoxComponent.DataSource = listComponent;
+                //    comboBoxComponent.SelectedItem = null;
+                //}
+                //else
+                //{
+                //    throw new Exception("Не удалось загрузить список изделий");
+                //}
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            
         }
-
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxName.Text))
+            if (string.IsNullOrEmpty(textBoxSum.Text))
             {
-                MessageBox.Show("Заполните поле \"Наименование\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле \"FIO\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBoxCheckIn.Text))
+            {
+                MessageBox.Show("Заполните поле \"Passport\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(comboBoxHotel.Text))
+            {
+                MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            if (string.IsNullOrEmpty(comboBoxHotel.Text))
+            {
+                MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(comboBoxHotel.Text))
+            {
+                MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(datePay.Text))
+            {
+                MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
-                typeLogic.CreateOrUpdate(new TypeBindingModel
+                paymentLogic.CreateOrUpdate(new PaymentBindingModel
                 {
                     Id = id,
-                    Name = textBoxName.Text
+                    SumPayment = Convert.ToDouble(textBoxSum.Text),
+                    DatePayment = datePay.Value,
+                    ClientId = Convert.ToInt32(comboBoxClient.Text),
+                    HotelId = Convert.ToInt32(comboBoxHotel.SelectedValue),
+                    CheckInId = Convert.ToInt32(comboBoxCheckIn.SelectedValue),
                 });
 
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

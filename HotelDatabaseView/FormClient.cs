@@ -1,4 +1,5 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using HotelDatabaseBusinessLogic.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,126 +16,66 @@ namespace HotelDatabaseView
         private int? id;
         public int Id { set { id = value; } }
 
-        private readonly EquipmentLogic equipmentLogic;
-        private readonly TypeLogic typeLogic;
-        private readonly EmployeeLogic employeeLogic;
-        private readonly SupplierLogic supplierLogic;
+        public ClientLogic clientLogic;
 
-        public FormClient(TypeLogic typeLogic, EmployeeLogic employeeLogic, SupplierLogic supplierLogic, EquipmentLogic equipmentLogic)
+        private readonly HotelLogic HotelLogic;
+        public int HotelId { get { return Convert.ToInt32(comboBoxHotel.SelectedValue); } set { comboBoxHotel.SelectedValue = value; } }
+        public FormClient(ClientLogic logic, HotelLogic hotel)
         {
             InitializeComponent();
-            this.typeLogic = typeLogic;
-            this.employeeLogic = employeeLogic;
-            this.supplierLogic = supplierLogic;
-            this.equipmentLogic = equipmentLogic;
+            clientLogic = logic;
+            HotelLogic = hotel;
         }
 
-        private void FormEquipment_Load(object sender, EventArgs e)
+        private void FormClient_Load(object sender, EventArgs e)
         {
             try
-            {
-                List<EmployeeViewModel> listEmployees = employeeLogic.Read(null);
-                List<TypeViewModel> listTypes = typeLogic.Read(null);
-                List<SupplierViewModel> listSuppliers = supplierLogic.Read(null);
-
-                if (listEmployees != null)
+            { 
+                List<HotelViewModel> listHotel = HotelLogic.Read(null);
+                if (listHotel != null)
                 {
-                    comboBoxEmployee.DisplayMember = "Name";
-                    comboBoxEmployee.ValueMember = "Id";
-                    comboBoxEmployee.DataSource = listEmployees;
-                    comboBoxEmployee.SelectedItem = null;
+                    comboBoxHotel.DisplayMember = "name";
+                    comboBoxHotel.ValueMember = "Id";
+                    comboBoxHotel.DataSource = listHotel;
+                    comboBoxHotel.SelectedItem = null;
                 }
-
-                if (listTypes != null)
+                else
                 {
-                    comboBoxType.DisplayMember = "Name";
-                    comboBoxType.ValueMember = "Id";
-                    comboBoxType.DataSource = listTypes;
-                    comboBoxType.SelectedItem = null;
-                }
-
-                if (listSuppliers != null)
-                {
-                    comboBoxSupplier.DisplayMember = "OrganizationName";
-                    comboBoxSupplier.ValueMember = "Id";
-                    comboBoxSupplier.DataSource = listSuppliers;
-                    comboBoxSupplier.SelectedItem = null;
-                }
-
-                if (id.HasValue)
-                {
-                    try
-                    {
-                        EquipmentViewModel view = equipmentLogic.Read(new EquipmentBindingModel { Id = id.Value })?[0];
-
-                        if (view != null)
-                        {
-                            textBoxName.Text = view.Name;
-                            textBoxSpecif.Text = view.Specifications;
-                            textBoxState.Text = view.State;
-                            dateTimePicker.Value = view.ReceiptDate;
-                            comboBoxType.SelectedValue = view.TypeId;
-                            comboBoxEmployee.SelectedValue = view.EmployeeId;
-                            comboBoxSupplier.SelectedValue = view.SupplierId;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    throw new Exception("Не удалось загрузить список изделий");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
 
+        }
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxName.Text))
+            if (string.IsNullOrEmpty(textBoxFullName.Text))
             {
-                MessageBox.Show("Заполните поле \"Наименование\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле \"FIO\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxSpecif.Text))
+            if (string.IsNullOrEmpty(textBoxPassport.Text))
             {
-                MessageBox.Show("Заполните поле \"Характеристики\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле \"Passport\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(textBoxState.Text))
+            if (comboBoxHotel.SelectedValue == null)
             {
-                MessageBox.Show("Заполните поле \"Состояние\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (comboBoxType.SelectedValue == null)
-            {
-                MessageBox.Show("Выберите тип вычислительной техники", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (comboBoxSupplier.SelectedValue == null)
-            {
-                MessageBox.Show("Выберите поставщика вычислительной техники", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (comboBoxEmployee.SelectedValue == null)
-            {
-                MessageBox.Show("Выберите работника, отвественного за данный экземпляр", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             try
             {
-                equipmentLogic.CreateOrUpdate(new EquipmentBindingModel
+                clientLogic.CreateOrUpdate(new ClientBindingModel
                 {
                     Id = id,
-                    Name = textBoxName.Text,
-                    Specifications = textBoxSpecif.Text,
-                    State = textBoxState.Text,
-                    ReceiptDate = dateTimePicker.Value,
-                    EmployeeId = Convert.ToInt32(comboBoxEmployee.SelectedValue),
-                    SupplierId = Convert.ToInt32(comboBoxSupplier.SelectedValue),
-                    TypeId = Convert.ToInt32(comboBoxType.SelectedValue)
+                    fioname = textBoxFullName.Text,
+                    passport = Convert.ToInt32(textBoxPassport.Text),
+                    HotelId = Convert.ToInt32(comboBoxHotel.SelectedValue)
                 });
 
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);

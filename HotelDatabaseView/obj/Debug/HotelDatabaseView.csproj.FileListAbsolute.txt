@@ -2,12 +2,7 @@ C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormCheckIn.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormCheckIns.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormClient.resources
-C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormEquipmentByDates.resources
-C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormEquipmentSoftware.resources
-C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormEquipmentSoftwareCreateUpd.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormMain.resources
-C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormSoftware.resources
-C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormSoftwareCreateUpd.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormStaff.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormStaffs.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormPayment.resources
@@ -111,3 +106,8 @@ C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.pdb
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormHotel.resources
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormHotelRooms.resources
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormClients.resources
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormHotelRoom.resources
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormHotels.resources

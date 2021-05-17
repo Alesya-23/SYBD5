@@ -1,5 +1,5 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
-using HotelDatabaseBusinessLogic.BusinessLogic;
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -10,15 +10,15 @@ namespace HotelDatabaseView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly SupplierLogic supplierLogic;
+        private readonly StaffLogic StaffLogic;
 
-        public FormStaffs(SupplierLogic supplierLogic)
+        public FormStaffs(StaffLogic StaffLogic)
         {
             InitializeComponent();
-            this.supplierLogic = supplierLogic;
+            this.StaffLogic = StaffLogic;
         }
 
-        private void FormSuppliers_Load(object sender, EventArgs e)
+        private void FormStaffs_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -27,19 +27,22 @@ namespace HotelDatabaseView
         {
             try
             {
-                var list = supplierLogic.Read(null);
+                var list = StaffLogic.Read(null);
                 if (list != null)
                 {
                     dataGridView.DataSource = list;
                     dataGridView.Columns[0].Visible = false;
-                    dataGridView.Columns[2].Width = 130;
-                    dataGridView.Columns[3].Width = 290;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ButtonRefresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void ButtonCreate_Click(object sender, EventArgs e)
@@ -73,7 +76,7 @@ namespace HotelDatabaseView
                     int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        supplierLogic.Delete(new SupplierBindingModel { Id = id });
+                        StaffLogic.Delete(new StaffBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {
@@ -81,33 +84,6 @@ namespace HotelDatabaseView
                     }
                     LoadData();
                 }
-            }
-        }
-
-        private void ButtonRefresh_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void ButtonFindByCity_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxCity.Text))
-            {
-                MessageBox.Show("Заполните поле \"Город\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-                var list = supplierLogic.Read(new SupplierBindingModel
-                {
-                    Address = textBoxCity.Text
-                });
-                dataGridView.DataSource = list;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -36,12 +36,8 @@ namespace HotelDatabaseView
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.buttonFindBName = new System.Windows.Forms.Button();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.groupBox = new System.Windows.Forms.GroupBox();
             this.buttonRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -51,20 +47,20 @@ namespace HotelDatabaseView
             this.dataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(1, -4);
+            this.dataGridView.Location = new System.Drawing.Point(12, 24);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 29;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(370, 470);
+            this.dataGridView.Size = new System.Drawing.Size(416, 372);
             this.dataGridView.TabIndex = 12;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(403, 178);
+            this.buttonDelete.Location = new System.Drawing.Point(453, 178);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(219, 44);
+            this.buttonDelete.Size = new System.Drawing.Size(246, 44);
             this.buttonDelete.TabIndex = 11;
             this.buttonDelete.Text = "Удалить запись";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -72,9 +68,9 @@ namespace HotelDatabaseView
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(403, 103);
+            this.buttonUpd.Location = new System.Drawing.Point(453, 103);
             this.buttonUpd.Name = "buttonUpd";
-            this.buttonUpd.Size = new System.Drawing.Size(219, 44);
+            this.buttonUpd.Size = new System.Drawing.Size(246, 44);
             this.buttonUpd.TabIndex = 10;
             this.buttonUpd.Text = "Изменить запись";
             this.buttonUpd.UseVisualStyleBackColor = true;
@@ -82,9 +78,9 @@ namespace HotelDatabaseView
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(403, 29);
+            this.buttonCreate.Location = new System.Drawing.Point(453, 29);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(219, 44);
+            this.buttonCreate.Size = new System.Drawing.Size(246, 44);
             this.buttonCreate.TabIndex = 9;
             this.buttonCreate.Text = "Создать запись";
             this.buttonCreate.UseVisualStyleBackColor = true;
@@ -117,61 +113,29 @@ namespace HotelDatabaseView
             this.button3.Text = "Создать запись";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // buttonFindBName
-            // 
-            this.buttonFindBName.Location = new System.Drawing.Point(24, 84);
-            this.buttonFindBName.Name = "buttonFindBName";
-            this.buttonFindBName.Size = new System.Drawing.Size(165, 35);
-            this.buttonFindBName.TabIndex = 18;
-            this.buttonFindBName.Text = "Найти";
-            this.buttonFindBName.UseVisualStyleBackColor = true;
-            this.buttonFindBName.Click += new System.EventHandler(this.ButtonFindByName_Click);
-            // 
-            // textBoxName
-            // 
-            this.textBoxName.Location = new System.Drawing.Point(6, 51);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(207, 27);
-            this.textBoxName.TabIndex = 17;
-            // 
-            // groupBox
-            // 
-            this.groupBox.Controls.Add(this.buttonFindBName);
-            this.groupBox.Controls.Add(this.textBoxName);
-            this.groupBox.Location = new System.Drawing.Point(403, 321);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(219, 132);
-            this.groupBox.TabIndex = 25;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Поиск по наименованию:";
-            // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(403, 250);
+            this.buttonRefresh.Location = new System.Drawing.Point(453, 250);
             this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(219, 44);
+            this.buttonRefresh.Size = new System.Drawing.Size(246, 44);
             this.buttonRefresh.TabIndex = 26;
             this.buttonRefresh.Text = "Обновить";
             this.buttonRefresh.UseVisualStyleBackColor = true;
             this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
-            // FormTypes
+            // FormPayments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 465);
+            this.ClientSize = new System.Drawing.Size(713, 420);
             this.Controls.Add(this.buttonRefresh);
-            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonUpd);
             this.Controls.Add(this.buttonCreate);
-            this.Name = "FormTypes";
-            this.Text = "Типы вычислительной техники";
-            this.Load += new System.EventHandler(this.FormTypes_Load);
+            this.Name = "FormPayments";
+            this.Text = "Оплаты";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.groupBox.ResumeLayout(false);
-            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -185,9 +149,6 @@ namespace HotelDatabaseView
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button buttonFindBName;
-        private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Button buttonRefresh;
     }
 }

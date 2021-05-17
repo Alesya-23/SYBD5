@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PaymentDatabaseBusinessLogic.Interfaces
+namespace HotelDatabaseBusinessLogic.Interfaces
 {
     public interface IPaymentStorage
     {

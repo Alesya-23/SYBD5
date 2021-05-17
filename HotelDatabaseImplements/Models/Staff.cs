@@ -10,6 +10,7 @@ namespace HotelDatabaseImplements.Models
         public int? Id { get; set; }
         public string FIOname { get; set; }
         public string Post { get; set; }
+        public int? HotelId { get; set; }
         public virtual Hotel Hotel { get; set; }
 
         [ForeignKey("HotelRoomId")]

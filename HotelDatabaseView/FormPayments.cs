@@ -1,4 +1,5 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
+using HotelDatabaseBusinessLogic.BussinessLogic;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -9,15 +10,15 @@ namespace HotelDatabaseView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly TypeLogic typeLogic;
+        private readonly PaymentLogic PaymentLogic;
 
-        public FormPayments(TypeLogic typeLogic)
+        public FormPayments(PaymentLogic PaymentLogic)
         {
             InitializeComponent();
-            this.typeLogic = typeLogic;
+            this.PaymentLogic = PaymentLogic;
         }
 
-        private void FormTypes_Load(object sender, EventArgs e)
+        private void FormPayments_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -26,7 +27,7 @@ namespace HotelDatabaseView
         {
             try
             {
-                var list = typeLogic.Read(null);
+                var list = PaymentLogic.Read(null);
                 if (list != null)
                 {
                     dataGridView.DataSource = list;
@@ -37,6 +38,11 @@ namespace HotelDatabaseView
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ButtonRefresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void ButtonCreate_Click(object sender, EventArgs e)
@@ -70,7 +76,7 @@ namespace HotelDatabaseView
                     int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        typeLogic.Delete(new TypeBindingModel { Id = id });
+                        PaymentLogic.Delete(new PaymentBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {
@@ -78,33 +84,6 @@ namespace HotelDatabaseView
                     }
                     LoadData();
                 }
-            }
-        }
-
-        private void ButtonRefresh_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void ButtonFindByName_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBoxName.Text))
-            {
-                MessageBox.Show("Заполните поле \"Наименование\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-                var list = typeLogic.Read(new TypeBindingModel
-                {
-                    Name = textBoxName.Text
-                });
-                dataGridView.DataSource = list;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

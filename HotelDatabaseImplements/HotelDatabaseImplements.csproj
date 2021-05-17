@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210513184915_Third.cs" />
+    <Compile Remove="Migrations\20210513184915_Third.Designer.cs" />
+    <Compile Remove="Migrations\20210513191549_Third.cs" />
+    <Compile Remove="Migrations\20210513191549_Third.Designer.cs" />
+    <Compile Remove="Migrations\20210513191915_Third.cs" />
+    <Compile Remove="Migrations\20210513191915_Third.Designer.cs" />
+    <Compile Remove="Migrations\20210513192255_Fourth.cs" />
+    <Compile Remove="Migrations\20210513192255_Fourth.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="DBContext" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.12" />

@@ -1,5 +1,4 @@
 ﻿using HotelDatabaseBusinessLogic.BindingModels;
-using HotelDatabaseBusinessLogic.BusinessLogic;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -10,12 +9,11 @@ namespace HotelDatabaseView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly EquipmentLogic equipmentLogic;
+       // private readonly EquipmentLogic equipmentLogic;
 
-        public FormMain(EquipmentLogic equipmentLogic)
+        public FormMain()
         {
             InitializeComponent();
-            this.equipmentLogic = equipmentLogic;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -27,51 +25,21 @@ namespace HotelDatabaseView
         {
             try
             {
-                var list = equipmentLogic.Read(null);
-                if (list != null)
-                {
-                    dataGridView.DataSource = list;
-                    dataGridView.Columns[0].Visible = false;
-                    dataGridView.Columns[8].Visible = false;
-                    dataGridView.Columns[9].Visible = false;
-                    dataGridView.Columns[10].Visible = false;
-                    dataGridView.Columns[2].Width = 500;
-                }
+                //var list = equipmentLogic.Read(null);
+                //if (list != null)
+                //{
+                //    dataGridView.DataSource = list;
+                //    dataGridView.Columns[0].Visible = false;
+                //    dataGridView.Columns[8].Visible = false;
+                //    dataGridView.Columns[9].Visible = false;
+                //    dataGridView.Columns[10].Visible = false;
+                //    dataGridView.Columns[2].Width = 500;
+                //}
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void ToolStripMenuItemEmployees_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormCheckIns>();
-            form.ShowDialog();
-        }
-
-        private void ToolStripMenuItemSuppliers_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormStaffs>();
-            form.ShowDialog();
-        }
-
-        private void ToolStripMenuItemTypes_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormPayments>();
-            form.ShowDialog();
-        }
-
-        private void ToolStripMenuItemSoft_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormSoftware>();
-            form.ShowDialog();
-        }
-
-        private void ToolStripMenuItemSoftEq_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormEquipmentSoftware>();
-            form.ShowDialog();
         }
 
         private void ButtonCreate_Click(object sender, EventArgs e)
@@ -105,7 +73,7 @@ namespace HotelDatabaseView
                     int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        equipmentLogic.Delete(new EquipmentBindingModel { Id = id });
+                       // equipmentLogic.Delete(new EquipmentBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {
@@ -118,11 +86,47 @@ namespace HotelDatabaseView
 
         private void ButtonEqByDates_Click(object sender, EventArgs e)
         {
-            FormEquipmentByDates form = Container.Resolve<FormEquipmentByDates>();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                LoadData();
-            }
+            //FormEquipmentByDates form = Container.Resolve<FormEquipmentByDates>();
+            //if (form.ShowDialog() == DialogResult.OK)
+            //{
+            //    LoadData();
+            //}
+        }
+
+        private void ToolStripMenuItemStaffs_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormStaffs>();
+            form.ShowDialog();
+        }
+
+        private void ToolStripMenuItemClients_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormClients>();
+            form.ShowDialog();
+        }
+
+        private void ToolStripMenuItemHotels_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormHotels>();
+            form.ShowDialog();
+        }
+
+        private void ToolStripMenuItemRooms_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormHotelRooms>();
+            form.ShowDialog();
+        }
+
+        private void ToolStripMenuItemPays_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormPayments>();
+            form.ShowDialog();
+        }
+
+        private void заездToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormCheckIns>();
+            form.ShowDialog();
         }
     }
 }
