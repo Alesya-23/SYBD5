@@ -11,6 +11,11 @@ namespace HotelDatabaseBusinessLogic.ViewModels
         public int ClientId { get; set; }
         public int HotelId { get; set; }
         public int CheckInId { get; set; }
+        [DisplayName("Клиент")]
+        public string ClientlName { get; set; }
+
+        [DisplayName("Название отеля")]
+        public string HotelName { get; set; }
         [DisplayName("Дата")]
         public DateTime DatePayment { get; set; }
         [DisplayName("Сумма оплаты")]

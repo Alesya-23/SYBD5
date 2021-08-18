@@ -6,3 +6,4 @@ C:\Users\aleca\source\repos\SYBD5\HotelDatabaseBusinessLogic\obj\Debug\netstanda
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseBusinessLogic\obj\Debug\netstandard2.0\HotelDatabaseBusinessLogic.csproj.CoreCompileInputs.cache
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseBusinessLogic\obj\Debug\netstandard2.0\HotelDatabaseBusinessLogic.dll
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseBusinessLogic\obj\Debug\netstandard2.0\HotelDatabaseBusinessLogic.pdb
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseBusinessLogic\obj\Debug\netstandard2.0\HotelDatabaseBusinessLogic.csprojAssemblyReference.cache

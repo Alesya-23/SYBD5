@@ -1,3 +1,5 @@
+using BusinessLogic.BusinessLogic;
+using BusinessLogic.Interfaces;
 using HotelDatabaseBusinessLogic.BussinessLogic;
 using HotelDatabaseBusinessLogic.Interfaces;
 using HotelDatabaseImplements.Implements;
@@ -31,6 +33,8 @@ namespace HotelDatabaseView
             currentContainer.RegisterType<IHotelRoomStorage, HotelRoomStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IPaymentStorage, PaymentStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IStaffStorage, StaffStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IReportStorage, ReportStorage>(new
+            HierarchicalLifetimeManager());
 
             currentContainer.RegisterType<ClientLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<CheckInLogic>(new HierarchicalLifetimeManager());
@@ -38,6 +42,7 @@ namespace HotelDatabaseView
             currentContainer.RegisterType<HotelRoomLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<PaymentLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<StaffLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ReportLogic>(new HierarchicalLifetimeManager());
 
             return currentContainer;
         }

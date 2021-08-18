@@ -2,6 +2,7 @@
 using HotelDatabaseBusinessLogic.BussinessLogic;
 using HotelDatabaseBusinessLogic.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Unity;
 
@@ -22,7 +23,7 @@ namespace HotelDatabaseView
 
         public int CheckInId { get { return Convert.ToInt32(comboBoxCheckIn.SelectedValue); } set { comboBoxCheckIn.SelectedValue = value; } }
         public int ClientId { get { return Convert.ToInt32(comboBoxClient.SelectedValue); } set { comboBoxClient.SelectedValue = value; } }
-        public int HotelId { get { return Convert.ToInt32(comboBoxClient.SelectedValue); } set { comboBoxClient.SelectedValue = value; } }
+        public int HotelId { get { return Convert.ToInt32(comboBoxHotel.SelectedValue); } set { comboBoxHotel.SelectedValue = value; } }
 
         public FormPayment(PaymentLogic logic, ClientLogic ClientLogic, CheckInLogic CheckInLogic, HotelLogic HotelLogic)
         {
@@ -37,31 +38,50 @@ namespace HotelDatabaseView
         {
             try
             {
-                //List<StorehouseViewModel> listStore = _logicS.Read(null);
-                //if (listStore != null)
-                //{
-                //    comboBoxStore.DisplayMember = "StoreHouseName";
-                //    comboBoxStore.ValueMember = "Id";
-                //    comboBoxStore.DataSource = listStore;
-                //    comboBoxStore.SelectedItem = null;
-                //}
-                //List<ComponentViewModel> listComponent = _logicC.Read(null);
-                //if (listComponent != null)
-                //{
-                //    comboBoxComponent.DisplayMember = "ComponentName";
-                //    comboBoxComponent.ValueMember = "Id";
-                //    comboBoxComponent.DataSource = listComponent;
-                //    comboBoxComponent.SelectedItem = null;
-                //}
-                //else
-                //{
-                //    throw new Exception("Не удалось загрузить список изделий");
-                //}
-                catch (Exception ex)
+                List<ClientViewModel> listClient = clientLogic.Read(null);
+                if (listClient != null)
                 {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    comboBoxClient.DisplayMember = "fioname";
+                    comboBoxClient.ValueMember = "Id";
+                    comboBoxClient.DataSource = listClient;
+                    comboBoxClient.SelectedItem = null;
                 }
-            
+                else
+                {
+                    throw new Exception("Не удалось загрузить список изделий");
+                }
+                List<HotelViewModel> listHotel = hotelLogic.Read(null);
+                if (listHotel != null)
+                {
+                    comboBoxHotel.DisplayMember = "name";
+                    comboBoxHotel.ValueMember = "Id";
+                    comboBoxHotel.DataSource = listHotel;
+                    comboBoxHotel.SelectedItem = null;
+                }
+
+                else
+                {
+                    throw new Exception("Не удалось загрузить список изделий");
+                }
+                List<CheckInViewModel> checkInlist = checkInLogic.Read(null);
+                if (checkInlist != null)
+                {
+                    comboBoxCheckIn.DisplayMember = "ClientName";
+                    comboBoxCheckIn.ValueMember = "Id";
+                    comboBoxCheckIn.DataSource = checkInlist;
+                    comboBoxCheckIn.SelectedItem = null;
+                }
+
+                else
+                {
+                    throw new Exception("Не удалось загрузить список изделий");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         private void ButtonSave_Click(object sender, EventArgs e)
         {
@@ -70,24 +90,18 @@ namespace HotelDatabaseView
                 MessageBox.Show("Заполните поле \"FIO\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(comboBoxCheckIn.Text))
+            if (comboBoxCheckIn.SelectedValue == null)
             {
                 MessageBox.Show("Заполните поле \"Passport\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrEmpty(comboBoxHotel.Text))
+            if (comboBoxClient.SelectedValue == null)
             {
                 MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (string.IsNullOrEmpty(comboBoxHotel.Text))
-            {
-                MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (string.IsNullOrEmpty(comboBoxHotel.Text))
+            if (comboBoxHotel.SelectedValue == null)
             {
                 MessageBox.Show("Заполните поле \"Hotel\" ", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -105,7 +119,7 @@ namespace HotelDatabaseView
                     Id = id,
                     SumPayment = Convert.ToDouble(textBoxSum.Text),
                     DatePayment = datePay.Value,
-                    ClientId = Convert.ToInt32(comboBoxClient.Text),
+                    ClientId = Convert.ToInt32(comboBoxClient.SelectedValue),
                     HotelId = Convert.ToInt32(comboBoxHotel.SelectedValue),
                     CheckInId = Convert.ToInt32(comboBoxCheckIn.SelectedValue),
                 });

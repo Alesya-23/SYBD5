@@ -40,7 +40,9 @@ namespace HotelDatabaseView
 
                     if (view != null)
                     {
-
+                        textBoxbusyrom.Text = view.CountBusyRooms.ToString();
+                        textBoxCounroom.Text = view.CountRooms.ToString();
+                        textBoxFullName.Text = view.name.ToString();
                     }
                 }
                 catch (Exception ex)

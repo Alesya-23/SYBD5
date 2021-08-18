@@ -28,7 +28,8 @@ namespace HotelDatabaseImplements.Implements
                         Id = rec.Id,
                         Datedepature = rec.Datedepature,
                         DateArrival = rec.DateArrival,
-                        ClientId = (int)rec.Client.Id
+                        ClientName = context.Clients.FirstOrDefault(r => r.Id == rec.ClientId).fioname,
+                        ClientId = (int)rec.Client.Id,
                     }).ToList();
             }
         }
@@ -116,7 +117,8 @@ namespace HotelDatabaseImplements.Implements
                         Id = rec.Id,
                         Datedepature = rec.Datedepature,
                         DateArrival = rec.DateArrival,
-                        ClientId = (int)rec.Client.Id
+                        ClientId = (int)rec.Client.Id,
+                        ClientName = context.Clients.FirstOrDefault(r => r.Id == rec.ClientId).fioname,
                     }).ToList();
             }
         }

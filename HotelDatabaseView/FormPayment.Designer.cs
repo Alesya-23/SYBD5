@@ -164,6 +164,7 @@
             this.Controls.Add(this.labelName);
             this.Name = "FormPayment";
             this.Text = "Тип";
+            this.Load += new System.EventHandler(this.FormPayment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

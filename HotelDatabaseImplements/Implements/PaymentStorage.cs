@@ -47,6 +47,8 @@ namespace HotelDatabaseImplements.Implements
                     SumPayment = rec.SumPayment,
                     CheckInId = rec.CheckInId,
                     ClientId = rec.ClientId,
+                    HotelName = context.Hotels.FirstOrDefault(r => r.Id == rec.HotelId).name,
+                    ClientlName = context.Clients.FirstOrDefault(r => r.Id == rec.ClientId).fioname,
                     HotelId = rec.HotelId
                 }).ToList();
             }
@@ -63,7 +65,9 @@ namespace HotelDatabaseImplements.Implements
                     SumPayment = rec.SumPayment,
                     CheckInId = rec.CheckInId,
                     ClientId = rec.ClientId,
-                    HotelId = rec.HotelId
+                    HotelId = rec.HotelId,
+                    HotelName = context.Hotels.FirstOrDefault(r => r.Id == rec.HotelId).name,
+                    ClientlName = context.Clients.FirstOrDefault(r => r.Id == rec.ClientId).fioname
                 }).ToList();
             }
         }
@@ -76,7 +80,17 @@ namespace HotelDatabaseImplements.Implements
                 {
                     try
                     {
-                        context.Payments.Add(CreateModel(model, new Payment()));
+                        Payment p = new Payment
+                        {
+                            DatePayment = model.DatePayment,
+                            SumPayment = model.SumPayment,
+                            CheckInId = model.CheckInId,
+                            HotelId = model.HotelId,
+                            ClientId = model.ClientId
+                        };
+                        context.Payments.Add(p);
+                        context.SaveChanges();
+                        CreateModel(model, p, context);
                         context.SaveChanges();
                         transaction.Commit();
                     }
@@ -102,7 +116,7 @@ namespace HotelDatabaseImplements.Implements
                         {
                             throw new Exception("Элемент не найден");
                         }
-                        CreateModel(model, element);
+                        CreateModel(model, element, context);
                         context.SaveChanges();
                         transaction.Commit();
                     }
@@ -131,14 +145,14 @@ namespace HotelDatabaseImplements.Implements
             }
         }
 
-        private Payment CreateModel(PaymentBindingModel model, Payment pay)
+        private Payment CreateModel(PaymentBindingModel model, Payment pay, HotelDatabase context)
         {
             pay.DatePayment = model.DatePayment;
             pay.SumPayment = model.SumPayment;
-            pay.Id = (int)model.Id;
             pay.ClientId = model.ClientId;
             pay.HotelId = model.HotelId;
             pay.CheckInId = model.CheckInId;
+            context.SaveChanges();
             return pay;
         }
     }

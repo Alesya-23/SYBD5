@@ -111,3 +111,5 @@ C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormClients.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormHotelRoom.resources
 C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormHotels.resources
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormAddHotelRooms.resources
+C:\Users\aleca\source\repos\SYBD5\HotelDatabaseView\obj\Debug\HotelDatabaseView.FormStaffAdd.resources

@@ -42,19 +42,17 @@ namespace HotelDatabaseImplements.Implements
                 return null;
             }
 
-            //using (var context = new HotelDatabase())
-            //{
-            //    return context.Clients
-            //        .Where(rec => rec.HotelId.Contains(model.HotelId))
-            //        .Select(rec => new ClientViewModel
-            //        {
-            //            Id = rec.Id,
-            //            HotelId = rec.HotelId,
-            //            fioname = rec.fioname,
-            //            passport = rec.passport
-            //        }).ToList();
-            //}
-            throw new NotImplementedException();
+            using (var context = new HotelDatabase())
+            {
+                return context.Clients.Select(rec => new ClientViewModel
+                {
+                    Id = rec.Id,
+                    HotelId = rec.HotelId,
+                    fioname = rec.fioname,
+                    passport = rec.passport,
+                    HotelName = context.Hotels.FirstOrDefault(r => r.Id == rec.HotelId).name,
+                }).ToList();
+            }
         }
 
         public List<ClientViewModel> GetFullList()
@@ -66,7 +64,8 @@ namespace HotelDatabaseImplements.Implements
                     Id = rec.Id,
                     HotelId = rec.HotelId,
                     fioname = rec.fioname,
-                    passport = rec.passport
+                    passport = rec.passport,
+                    HotelName = context.Hotels.FirstOrDefault(r => r.Id == rec.HotelId).name,
                 }).ToList();
             }
         }
@@ -136,7 +135,6 @@ namespace HotelDatabaseImplements.Implements
 
         private Client CreateModel(ClientBindingModel model, Client client)
         {
-            client.Id = model.Id;
             client.fioname = model.fioname;
             client.passport = model.passport;
             client.HotelId = model.HotelId;

@@ -120,6 +120,7 @@
             this.Controls.Add(this.labelFullName);
             this.Name = "FormHotel";
             this.Text = "FormHotel";
+            this.Load += new System.EventHandler(this.FormHotel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

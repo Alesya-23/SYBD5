@@ -1,4 +1,8 @@
-﻿using HotelDatabaseBusinessLogic.BindingModels;
+﻿using BusinessLogic.BindingModels;
+using BusinessLogic.BusinessLogic;
+using HotelDatabaseBusinessLogic.BindingModels;
+using HotelDatabaseBusinessLogic.BussinessLogic;
+using HotelDatabaseImplements.Models;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -9,90 +13,24 @@ namespace HotelDatabaseView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-       // private readonly EquipmentLogic equipmentLogic;
 
-        public FormMain()
+        private readonly ReportLogic _reportLogic;
+
+
+        public FormMain(ReportLogic report)
         {
+            _reportLogic = report;
             InitializeComponent();
         }
 
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
 
-        private void LoadData()
+        private void RefreshDataGrid(object sender, EventArgs e)
         {
-            try
-            {
-                //var list = equipmentLogic.Read(null);
-                //if (list != null)
-                //{
-                //    dataGridView.DataSource = list;
-                //    dataGridView.Columns[0].Visible = false;
-                //    dataGridView.Columns[8].Visible = false;
-                //    dataGridView.Columns[9].Visible = false;
-                //    dataGridView.Columns[10].Visible = false;
-                //    dataGridView.Columns[2].Width = 500;
-                //}
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            var list = _reportLogic.GetRoomsInfo();
+            if (list == null) { return; }
+            dataGridView.DataSource = list;
+            dataGridView.Columns[0].Visible = false;
         }
-
-        private void ButtonCreate_Click(object sender, EventArgs e)
-        {
-            FormClient form = Container.Resolve<FormClient>();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                LoadData();
-            }
-        }
-
-        private void ButtonUpd_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count == 1)
-            {
-                FormClient form = Container.Resolve<FormClient>();
-                form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
-            }
-        }
-
-        private void ButtonDel_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count == 1)
-            {
-                if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                    try
-                    {
-                       // equipmentLogic.Delete(new EquipmentBindingModel { Id = id });
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    LoadData();
-                }
-            }
-        }
-
-        private void ButtonEqByDates_Click(object sender, EventArgs e)
-        {
-            //FormEquipmentByDates form = Container.Resolve<FormEquipmentByDates>();
-            //if (form.ShowDialog() == DialogResult.OK)
-            //{
-            //    LoadData();
-            //}
-        }
-
         private void ToolStripMenuItemStaffs_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormStaffs>();

@@ -36,13 +36,25 @@
             this.labelTypeRoom = new System.Windows.Forms.Label();
             this.labelHotel = new System.Windows.Forms.Label();
             this.comboBoxHotel = new System.Windows.Forms.ComboBox();
-            this.labelStaff = new System.Windows.Forms.Label();
-            this.comboBoxStaff = new System.Windows.Forms.ComboBox();
+            this.groupBoxComponents = new System.Windows.Forms.GroupBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonChange = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ФИО = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdComponent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelClient = new System.Windows.Forms.Label();
+            this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.textBoxReservation = new System.Windows.Forms.TextBox();
+            this.Reeservation = new System.Windows.Forms.Label();
+            this.groupBoxComponents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(298, 258);
+            this.buttonCancel.Location = new System.Drawing.Point(338, 409);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(186, 42);
             this.buttonCancel.TabIndex = 23;
@@ -51,7 +63,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(28, 258);
+            this.buttonSave.Location = new System.Drawing.Point(34, 409);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(186, 42);
             this.buttonSave.TabIndex = 22;
@@ -61,15 +73,15 @@
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(9, 96);
+            this.textBoxPrice.Location = new System.Drawing.Point(9, 85);
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(493, 26);
+            this.textBoxPrice.Size = new System.Drawing.Size(222, 26);
             this.textBoxPrice.TabIndex = 21;
             // 
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(9, 73);
+            this.labelPrice.Location = new System.Drawing.Point(9, 62);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(48, 20);
             this.labelPrice.TabIndex = 20;
@@ -77,9 +89,9 @@
             // 
             // textBoxTypeRoom
             // 
-            this.textBoxTypeRoom.Location = new System.Drawing.Point(9, 33);
+            this.textBoxTypeRoom.Location = new System.Drawing.Point(9, 31);
             this.textBoxTypeRoom.Name = "textBoxTypeRoom";
-            this.textBoxTypeRoom.Size = new System.Drawing.Size(493, 26);
+            this.textBoxTypeRoom.Size = new System.Drawing.Size(222, 26);
             this.textBoxTypeRoom.TabIndex = 19;
             // 
             // labelTypeRoom
@@ -94,7 +106,7 @@
             // labelHotel
             // 
             this.labelHotel.AutoSize = true;
-            this.labelHotel.Location = new System.Drawing.Point(12, 134);
+            this.labelHotel.Location = new System.Drawing.Point(276, 8);
             this.labelHotel.Name = "labelHotel";
             this.labelHotel.Size = new System.Drawing.Size(58, 20);
             this.labelHotel.TabIndex = 25;
@@ -103,35 +115,135 @@
             // comboBoxHotel
             // 
             this.comboBoxHotel.FormattingEnabled = true;
-            this.comboBoxHotel.Location = new System.Drawing.Point(13, 157);
+            this.comboBoxHotel.Location = new System.Drawing.Point(277, 31);
             this.comboBoxHotel.Name = "comboBoxHotel";
-            this.comboBoxHotel.Size = new System.Drawing.Size(493, 28);
+            this.comboBoxHotel.Size = new System.Drawing.Size(218, 28);
             this.comboBoxHotel.TabIndex = 24;
             // 
-            // labelStaff
+            // groupBoxComponents
             // 
-            this.labelStaff.AutoSize = true;
-            this.labelStaff.Location = new System.Drawing.Point(8, 201);
-            this.labelStaff.Name = "labelStaff";
-            this.labelStaff.Size = new System.Drawing.Size(84, 20);
-            this.labelStaff.TabIndex = 27;
-            this.labelStaff.Text = "Персонал";
+            this.groupBoxComponents.Controls.Add(this.buttonUpdate);
+            this.groupBoxComponents.Controls.Add(this.buttonDelete);
+            this.groupBoxComponents.Controls.Add(this.buttonChange);
+            this.groupBoxComponents.Controls.Add(this.buttonAdd);
+            this.groupBoxComponents.Controls.Add(this.dataGridView);
+            this.groupBoxComponents.Location = new System.Drawing.Point(9, 171);
+            this.groupBoxComponents.Name = "groupBoxComponents";
+            this.groupBoxComponents.Size = new System.Drawing.Size(576, 232);
+            this.groupBoxComponents.TabIndex = 28;
+            this.groupBoxComponents.TabStop = false;
+            this.groupBoxComponents.Text = "Персонал";
             // 
-            // comboBoxStaff
+            // buttonUpdate
             // 
-            this.comboBoxStaff.FormattingEnabled = true;
-            this.comboBoxStaff.Location = new System.Drawing.Point(9, 224);
-            this.comboBoxStaff.Name = "comboBoxStaff";
-            this.comboBoxStaff.Size = new System.Drawing.Size(493, 28);
-            this.comboBoxStaff.TabIndex = 26;
+            this.buttonUpdate.Location = new System.Drawing.Point(443, 183);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(106, 33);
+            this.buttonUpdate.TabIndex = 4;
+            this.buttonUpdate.Text = "Обновить";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(443, 132);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(106, 33);
+            this.buttonDelete.TabIndex = 3;
+            this.buttonDelete.Text = "Удалить";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            // 
+            // buttonChange
+            // 
+            this.buttonChange.Location = new System.Drawing.Point(443, 80);
+            this.buttonChange.Name = "buttonChange";
+            this.buttonChange.Size = new System.Drawing.Size(106, 33);
+            this.buttonChange.TabIndex = 2;
+            this.buttonChange.Text = "Изменить";
+            this.buttonChange.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(443, 25);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(106, 33);
+            this.buttonAdd.TabIndex = 1;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ФИО,
+            this.IdComponent});
+            this.dataGridView.Location = new System.Drawing.Point(25, 34);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.RowHeadersWidth = 62;
+            this.dataGridView.RowTemplate.Height = 28;
+            this.dataGridView.Size = new System.Drawing.Size(365, 182);
+            this.dataGridView.TabIndex = 0;
+            // 
+            // ФИО
+            // 
+            this.ФИО.HeaderText = "ФИО";
+            this.ФИО.MinimumWidth = 8;
+            this.ФИО.Name = "ФИО";
+            this.ФИО.Width = 150;
+            // 
+            // IdComponent
+            // 
+            this.IdComponent.HeaderText = "ID";
+            this.IdComponent.MinimumWidth = 8;
+            this.IdComponent.Name = "IdComponent";
+            this.IdComponent.Visible = false;
+            this.IdComponent.Width = 150;
+            // 
+            // labelClient
+            // 
+            this.labelClient.AutoSize = true;
+            this.labelClient.Location = new System.Drawing.Point(276, 62);
+            this.labelClient.Name = "labelClient";
+            this.labelClient.Size = new System.Drawing.Size(49, 20);
+            this.labelClient.TabIndex = 30;
+            this.labelClient.Text = "Client";
+            // 
+            // comboBoxClient
+            // 
+            this.comboBoxClient.FormattingEnabled = true;
+            this.comboBoxClient.Location = new System.Drawing.Point(277, 85);
+            this.comboBoxClient.Name = "comboBoxClient";
+            this.comboBoxClient.Size = new System.Drawing.Size(218, 28);
+            this.comboBoxClient.TabIndex = 29;
+            this.comboBoxClient.SelectedIndexChanged += new System.EventHandler(this.comboBoxClient_SelectedIndexChanged);
+            // 
+            // textBoxReservation
+            // 
+            this.textBoxReservation.Location = new System.Drawing.Point(9, 139);
+            this.textBoxReservation.Name = "textBoxReservation";
+            this.textBoxReservation.Size = new System.Drawing.Size(222, 26);
+            this.textBoxReservation.TabIndex = 32;
+            // 
+            // Reeservation
+            // 
+            this.Reeservation.AutoSize = true;
+            this.Reeservation.Location = new System.Drawing.Point(9, 116);
+            this.Reeservation.Name = "Reeservation";
+            this.Reeservation.Size = new System.Drawing.Size(54, 20);
+            this.Reeservation.TabIndex = 31;
+            this.Reeservation.Text = "бронь";
             // 
             // FormHotelRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 321);
-            this.Controls.Add(this.labelStaff);
-            this.Controls.Add(this.comboBoxStaff);
+            this.ClientSize = new System.Drawing.Size(631, 463);
+            this.Controls.Add(this.textBoxReservation);
+            this.Controls.Add(this.Reeservation);
+            this.Controls.Add(this.labelClient);
+            this.Controls.Add(this.comboBoxClient);
+            this.Controls.Add(this.groupBoxComponents);
             this.Controls.Add(this.labelHotel);
             this.Controls.Add(this.comboBoxHotel);
             this.Controls.Add(this.buttonCancel);
@@ -143,6 +255,8 @@
             this.Name = "FormHotelRoom";
             this.Text = "Номер отеля";
             this.Load += new System.EventHandler(this.FormHotelRoom_Load);
+            this.groupBoxComponents.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,7 +272,17 @@
         private System.Windows.Forms.Label labelTypeRoom;
         private System.Windows.Forms.Label labelHotel;
         private System.Windows.Forms.ComboBox comboBoxHotel;
-        private System.Windows.Forms.Label labelStaff;
-        private System.Windows.Forms.ComboBox comboBoxStaff;
+        private System.Windows.Forms.GroupBox groupBoxComponents;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonChange;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Label labelClient;
+        private System.Windows.Forms.ComboBox comboBoxClient;
+        private System.Windows.Forms.TextBox textBoxReservation;
+        private System.Windows.Forms.Label Reeservation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ФИО;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdComponent;
     }
 }

@@ -21,7 +21,7 @@ namespace HotelDatabaseImplements.Implements
 
             using (var context = new HotelDatabase())
             {
-                var staff = context.Staffs.Include(rec => rec.HotelRoomStaffs)
+                var staff = context.Staffs.Include(rec => rec.HotelRoomStaffs).ThenInclude(rec => rec.HotelRoom)
                 .FirstOrDefault(rec => rec.Id == model.Id);
                 return staff != null ?
                 new StaffViewModel
@@ -45,13 +45,14 @@ namespace HotelDatabaseImplements.Implements
             }
             using (var context = new HotelDatabase())
             {
-                return context.Staffs.Include(rec => rec.HotelRoomStaffs).Select(rec =>
+                return context.Staffs.Include(rec => rec.HotelRoomStaffs).ThenInclude(rec => rec.HotelRoom).ToList().Select(rec =>
                 new StaffViewModel
                 {
                     Id = rec.Id,
                     FIOname = rec.FIOname,
                     Post = rec.Post,
                     HotelId = (int)rec.HotelId,
+                    HotelName = context.Hotels.FirstOrDefault(r => r.Id == rec.HotelId).name,
                     HotelRooms = rec.HotelRoomStaffs.ToDictionary(recPC =>
                     recPC.HotelRoomId, recPC => recPC.HotelRoom.TypeRoom)
                 })
@@ -62,15 +63,17 @@ namespace HotelDatabaseImplements.Implements
         {
             using (var context = new HotelDatabase())
             {
-                return context.Staffs.Include(rec => rec.HotelRoomStaffs).Select(rec =>
+                return context.Staffs.Include(rec => rec.HotelRoomStaffs)
+               .ThenInclude(rec => rec.HotelRoom).ToList().Select(rec =>
                 new StaffViewModel
                 {
                     Id = rec.Id,
                     FIOname = rec.FIOname,
                     Post = rec.Post,
                     HotelId = (int)rec.HotelId,
+                    HotelName = context.Hotels.FirstOrDefault(r => r.Id == rec.HotelId).name,
                     HotelRooms = rec.HotelRoomStaffs.ToDictionary(recPC =>
-                    recPC.HotelRoomId, recPC => recPC.HotelRoom.TypeRoom)
+                    recPC.HotelRoomId, recPC => recPC.HotelRoom?.TypeRoom)
                 })
                .ToList();
             }
@@ -86,9 +89,9 @@ namespace HotelDatabaseImplements.Implements
                     {
                         Staff p = new Staff
                         {
-                            Id = model.Id,
                             FIOname = model.FIOname,
                             Post = model.Post,
+                            HotelId = model.HotelId,
                         };
                         context.Staffs.Add(p);
                         context.SaveChanges();
@@ -150,13 +153,12 @@ namespace HotelDatabaseImplements.Implements
             }
 
         }
-        private Staff CreateModel(StaffBindingModel model, Staff hotelroom,
+        private Staff CreateModel(StaffBindingModel model, Staff staff,
      HotelDatabase context)
         {
-            hotelroom.Id = model.Id;
-            hotelroom.FIOname = model.FIOname;
-            hotelroom.Post = model.Post;
-            hotelroom.HotelId = (int)model.HotelId;
+            staff.FIOname = model.FIOname;
+            staff.Post = model.Post;
+            staff.HotelId = (int)model.HotelId;
             if (model.Id.HasValue)
             {
                 var staffrooms = context.HotelRoomStaffs.Where(rec =>
@@ -165,25 +167,18 @@ namespace HotelDatabaseImplements.Implements
                 context.HotelRoomStaffs.RemoveRange(staffrooms.Where(rec =>
                !model.HotelRooms.ContainsKey(rec.StaffId)).ToList());
                 context.SaveChanges();
-                //// обновили количество у существующих записей
-                //foreach (var uphotelroomstaff in staffrooms)
-                //{
-                //    uphotelroomstaff. = model.Staff[uphotelroomstaff.StaffId].Item2;
-                //    model.PackageComponents.Remove(uphotelroomstaff.ComponentId);
-                //}
-                //context.SaveChanges();
             }
             // добавили новые
             foreach (var pc in model.HotelRooms)
             {
                 context.HotelRoomStaffs.Add(new HotelRoomStaff
                 {
-                    HotelRoomId = (int)hotelroom.Id,
+                    HotelRoomId = (int)staff.Id,
                     StaffId = pc.Key
                 });
                 context.SaveChanges();
             }
-            return hotelroom;
+            return staff;
         }
     }
 }

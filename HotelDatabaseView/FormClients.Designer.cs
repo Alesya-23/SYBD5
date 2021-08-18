@@ -38,13 +38,13 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(631, 252);
+            this.buttonRefresh.Location = new System.Drawing.Point(958, 252);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(153, 44);
             this.buttonRefresh.TabIndex = 15;
             this.buttonRefresh.Text = "Обновить";
             this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.ButtonUpd_Click);
+            this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
             // dataGridView
             // 
@@ -59,12 +59,12 @@
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 29;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(606, 470);
+            this.dataGridView.Size = new System.Drawing.Size(903, 470);
             this.dataGridView.TabIndex = 14;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(631, 180);
+            this.buttonDelete.Location = new System.Drawing.Point(958, 180);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(153, 44);
             this.buttonDelete.TabIndex = 13;
@@ -74,17 +74,17 @@
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(631, 106);
+            this.buttonUpd.Location = new System.Drawing.Point(958, 106);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(153, 44);
             this.buttonUpd.TabIndex = 12;
             this.buttonUpd.Text = "Изменить";
             this.buttonUpd.UseVisualStyleBackColor = true;
-            this.buttonUpd.Click += new System.EventHandler(this.ButtonRefresh_Click);
+            this.buttonUpd.Click += new System.EventHandler(this.ButtonUpd_Click);
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(631, 36);
+            this.buttonCreate.Location = new System.Drawing.Point(958, 36);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(153, 44);
             this.buttonCreate.TabIndex = 11;
@@ -96,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 482);
+            this.ClientSize = new System.Drawing.Size(1155, 482);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonDelete);

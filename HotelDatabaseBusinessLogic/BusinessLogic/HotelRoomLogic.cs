@@ -33,7 +33,11 @@ namespace HotelDatabaseBusinessLogic.BussinessLogic
         {
             var element = hotelRoomStorage.GetElement(new HotelRoomBindingModel { Id = model.Id });
 
-            if (element != null)
+            if (element !=null && element.Id != model.Id)
+            {
+                throw new Exception("Уже есть компонент с таким названием");
+            }
+            if (model.Id.HasValue)
             {
                 hotelRoomStorage.Update(model);
             }

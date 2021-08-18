@@ -36,9 +36,6 @@
             this.toolStripMenuItemSoftEq = new System.Windows.Forms.ToolStripMenuItem();
             this.заездToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonCreate = new System.Windows.Forms.Button();
-            this.buttonUpd = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -57,49 +54,49 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(995, 36);
+            this.menuStrip.Size = new System.Drawing.Size(995, 33);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
             // toolStripMenuItemEmployees
             // 
             this.toolStripMenuItemEmployees.Name = "toolStripMenuItemEmployees";
-            this.toolStripMenuItemEmployees.Size = new System.Drawing.Size(126, 32);
+            this.toolStripMenuItemEmployees.Size = new System.Drawing.Size(126, 29);
             this.toolStripMenuItemEmployees.Text = "Сотрудники";
             this.toolStripMenuItemEmployees.Click += new System.EventHandler(this.ToolStripMenuItemStaffs_Click);
             // 
             // toolStripMenuItemSuppliers
             // 
             this.toolStripMenuItemSuppliers.Name = "toolStripMenuItemSuppliers";
-            this.toolStripMenuItemSuppliers.Size = new System.Drawing.Size(96, 32);
+            this.toolStripMenuItemSuppliers.Size = new System.Drawing.Size(96, 29);
             this.toolStripMenuItemSuppliers.Text = "Клиенты";
             this.toolStripMenuItemSuppliers.Click += new System.EventHandler(this.ToolStripMenuItemClients_Click);
             // 
             // toolStripMenuItemTypes
             // 
             this.toolStripMenuItemTypes.Name = "toolStripMenuItemTypes";
-            this.toolStripMenuItemTypes.Size = new System.Drawing.Size(77, 32);
+            this.toolStripMenuItemTypes.Size = new System.Drawing.Size(77, 29);
             this.toolStripMenuItemTypes.Text = "Отели";
             this.toolStripMenuItemTypes.Click += new System.EventHandler(this.ToolStripMenuItemHotels_Click);
             // 
             // toolStripMenuItemSoft
             // 
             this.toolStripMenuItemSoft.Name = "toolStripMenuItemSoft";
-            this.toolStripMenuItemSoft.Size = new System.Drawing.Size(101, 32);
+            this.toolStripMenuItemSoft.Size = new System.Drawing.Size(101, 29);
             this.toolStripMenuItemSoft.Text = "Комнаты";
             this.toolStripMenuItemSoft.Click += new System.EventHandler(this.ToolStripMenuItemRooms_Click);
             // 
             // toolStripMenuItemSoftEq
             // 
             this.toolStripMenuItemSoftEq.Name = "toolStripMenuItemSoftEq";
-            this.toolStripMenuItemSoftEq.Size = new System.Drawing.Size(104, 32);
+            this.toolStripMenuItemSoftEq.Size = new System.Drawing.Size(104, 29);
             this.toolStripMenuItemSoftEq.Text = "Выплаты ";
             this.toolStripMenuItemSoftEq.Click += new System.EventHandler(this.ToolStripMenuItemPays_Click);
             // 
             // заездToolStripMenuItem
             // 
             this.заездToolStripMenuItem.Name = "заездToolStripMenuItem";
-            this.заездToolStripMenuItem.Size = new System.Drawing.Size(87, 32);
+            this.заездToolStripMenuItem.Size = new System.Drawing.Size(87, 29);
             this.заездToolStripMenuItem.Text = "Заезды";
             this.заездToolStripMenuItem.Click += new System.EventHandler(this.заездToolStripMenuItem_Click);
             // 
@@ -119,50 +116,17 @@
             this.dataGridView.Size = new System.Drawing.Size(687, 281);
             this.dataGridView.TabIndex = 1;
             // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Location = new System.Drawing.Point(718, 46);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(246, 44);
-            this.buttonCreate.TabIndex = 2;
-            this.buttonCreate.Text = "Создать запись";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.ButtonCreate_Click);
-            // 
-            // buttonUpd
-            // 
-            this.buttonUpd.Location = new System.Drawing.Point(718, 135);
-            this.buttonUpd.Name = "buttonUpd";
-            this.buttonUpd.Size = new System.Drawing.Size(246, 44);
-            this.buttonUpd.TabIndex = 3;
-            this.buttonUpd.Text = "Изменить запись";
-            this.buttonUpd.UseVisualStyleBackColor = true;
-            this.buttonUpd.Click += new System.EventHandler(this.ButtonUpd_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(718, 223);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(246, 44);
-            this.buttonDelete.TabIndex = 4;
-            this.buttonDelete.Text = "Удалить запись";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.ButtonDel_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 395);
-            this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.buttonUpd);
-            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "FormMain";
             this.Text = "Главная форма отеля";
-            this.Load += new System.EventHandler(this.FormMain_Load);
+            this.Load += new System.EventHandler(this.RefreshDataGrid);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -180,9 +144,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSoft;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemSoftEq;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button buttonCreate;
-        private System.Windows.Forms.Button buttonUpd;
-        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.ToolStripMenuItem заездToolStripMenuItem;
     }
 }

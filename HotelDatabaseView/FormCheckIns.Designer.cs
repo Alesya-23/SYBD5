@@ -38,7 +38,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(444, 174);
+            this.buttonDelete.Location = new System.Drawing.Point(821, 175);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(246, 44);
             this.buttonDelete.TabIndex = 7;
@@ -48,17 +48,17 @@
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(444, 100);
+            this.buttonUpd.Location = new System.Drawing.Point(821, 101);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(246, 44);
             this.buttonUpd.TabIndex = 6;
             this.buttonUpd.Text = "Изменить запись";
             this.buttonUpd.UseVisualStyleBackColor = true;
-            this.buttonUpd.Click += new System.EventHandler(this.ButtonUpd_Click);
+            this.buttonUpd.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(444, 30);
+            this.buttonCreate.Location = new System.Drawing.Point(821, 31);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(246, 44);
             this.buttonCreate.TabIndex = 5;
@@ -79,24 +79,24 @@
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 29;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(416, 470);
+            this.dataGridView.Size = new System.Drawing.Size(800, 470);
             this.dataGridView.TabIndex = 8;
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(444, 246);
+            this.buttonRefresh.Location = new System.Drawing.Point(821, 247);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(246, 44);
             this.buttonRefresh.TabIndex = 10;
             this.buttonRefresh.Text = "Обновить";
             this.buttonRefresh.UseVisualStyleBackColor = true;
-            this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
+            this.buttonRefresh.Click += new System.EventHandler(this.ButtonUpd_Click);
             // 
             // FormCheckIns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 470);
+            this.ClientSize = new System.Drawing.Size(1143, 470);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonDelete);
@@ -104,6 +104,7 @@
             this.Controls.Add(this.buttonCreate);
             this.Name = "FormCheckIns";
             this.Text = "Заезды";
+            this.Load += new System.EventHandler(this.FormCheckIns_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 

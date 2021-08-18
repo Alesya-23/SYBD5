@@ -46,16 +46,15 @@ namespace HotelDatabaseView
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(12, 1);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 29;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(394, 448);
+            this.dataGridView.Size = new System.Drawing.Size(824, 448);
             this.dataGridView.TabIndex = 30;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(431, 163);
+            this.buttonDelete.Location = new System.Drawing.Point(881, 182);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(246, 44);
             this.buttonDelete.TabIndex = 29;
@@ -65,7 +64,7 @@ namespace HotelDatabaseView
             // 
             // buttonUpd
             // 
-            this.buttonUpd.Location = new System.Drawing.Point(431, 88);
+            this.buttonUpd.Location = new System.Drawing.Point(881, 107);
             this.buttonUpd.Name = "buttonUpd";
             this.buttonUpd.Size = new System.Drawing.Size(246, 44);
             this.buttonUpd.TabIndex = 28;
@@ -75,7 +74,7 @@ namespace HotelDatabaseView
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(431, 14);
+            this.buttonCreate.Location = new System.Drawing.Point(881, 33);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(246, 44);
             this.buttonCreate.TabIndex = 27;
@@ -85,7 +84,7 @@ namespace HotelDatabaseView
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(431, 235);
+            this.buttonRefresh.Location = new System.Drawing.Point(881, 254);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(246, 44);
             this.buttonRefresh.TabIndex = 34;
@@ -97,7 +96,7 @@ namespace HotelDatabaseView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1170, 450);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonUpd);
@@ -105,6 +104,7 @@ namespace HotelDatabaseView
             this.Controls.Add(this.buttonRefresh);
             this.Name = "FormHotelRooms";
             this.Text = "Номера";
+            this.Load += new System.EventHandler(this.FormHotelRooms_Load);
             this.Click += new System.EventHandler(this.FormHotelRooms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

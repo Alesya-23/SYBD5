@@ -171,6 +171,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddHotelRooms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddHotelRooms.Designer.cs">
+      <DependentUpon>FormAddHotelRooms.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,12 @@
     <Compile Include="FormStaff.Designer.cs">
       <DependentUpon>FormStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormStaffAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStaffAdd.Designer.cs">
+      <DependentUpon>FormStaffAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStaffs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -251,6 +263,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddHotelRooms.resx">
+      <DependentUpon>FormAddHotelRooms.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCheckIn.resx">
       <DependentUpon>FormCheckIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormStaff.resx">
       <DependentUpon>FormStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStaffAdd.resx">
+      <DependentUpon>FormStaffAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormStaffs.resx">
       <DependentUpon>FormStaffs.cs</DependentUpon>
